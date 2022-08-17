@@ -11,9 +11,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main >
         <Hero />
-        {/*<LoanInformation />
+        {/*<Navigation /> Buttons on top of Page
+        <LoanInformation />
         <PaymentSchedule /> */}
       </main>
 
