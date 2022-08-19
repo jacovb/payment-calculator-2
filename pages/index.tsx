@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React, { useState } from 'react'
 import Hero from '../components/Hero'
+import PaymentCalculator from '../components/PaymentCalculator';
 
 
 const Home: NextPage = () => {
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main >
-        <Hero start={start} setStart={setStart} />
+        {(!start) ? <Hero start={start} setStart={setStart} /> : <PaymentCalculator />}
         {/*<Navigation /> Buttons on top of Page
         <LoanInformation />
         <PaymentSchedule /> */}
