@@ -1,6 +1,6 @@
 import { AddressTypes } from "./model";
 
-const Page1Address: React.FC = ({address}) => {
+export default function Page1Address ({address}: {address: AddressTypes}) {
   return (
     <form>
       <label>Flat Number / Building Name:</label>
@@ -9,7 +9,7 @@ const Page1Address: React.FC = ({address}) => {
         type="text"
         name="buildingName"
         value={address.buildingName}
-        onChange={props.handleChange}
+        // onChange={props.handleChange}
       />
 
       <label>Street Number:</label>
@@ -18,7 +18,7 @@ const Page1Address: React.FC = ({address}) => {
         type="text"
         name="streetNumber"
         value={address.streetNumber}
-        onChange={props.handleChange}
+        // onChange={props.handleChange}
       />
 
       <label>Street Name:</label>
@@ -27,7 +27,7 @@ const Page1Address: React.FC = ({address}) => {
         type="text"
         name="streetAddress"
         value={address.streetAddress}
-        onChange={props.handleChange}
+        // onChange={props.handleChange}
       />
 
       <label>City:</label>
@@ -36,7 +36,7 @@ const Page1Address: React.FC = ({address}) => {
         type="text"
         name="city"
         value={address.city}
-        onChange={props.handleChange}
+        // onChange={props.handleChange}
       />
 
       <label>Postal Code:</label>
@@ -45,10 +45,8 @@ const Page1Address: React.FC = ({address}) => {
         type="text"
         name="postalCode"
         value={address.postalCode}
-        onChange={props.handleChange}
+        // onChange={props.handleChange}
       />
     </form>
   );
 };
-
-export default Page1Address;
