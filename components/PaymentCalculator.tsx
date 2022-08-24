@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, ChangeEvent } from "react"
 import { AddressTypes } from "./model"
 import Page1Address from "./Page1Address"
 
@@ -22,7 +22,7 @@ const PaymentCalculator:React.FC = () => {
   console.log("Page 3 :", isPage3Visible)
   console.log(address)
 
-  function handleAddressChange (e: any) {
+  function handleAddressChange (e: ChangeEvent<HTMLInputElement>) {
     setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
