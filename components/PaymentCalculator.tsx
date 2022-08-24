@@ -20,11 +20,16 @@ const PaymentCalculator:React.FC = () => {
   console.log("Page 1 :", isPage1Visible)
   console.log("Page 2 :", isPage2Visible)
   console.log("Page 3 :", isPage3Visible)
+  console.log(address)
+
+  function handleAddressChange (e: any) {
+    setAddress({ ...address, [e.target.name]: e.target.value })
+  }
 
   return (
     <main>
       <h1>Enter Address</h1>
-      <Page1Address address={address}/>
+      <Page1Address address={address} handleAddressChange={handleAddressChange}/>
       <button>Skip</button>
     </main>
   )

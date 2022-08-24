@@ -1,6 +1,6 @@
 import { AddressTypes } from "./model";
 
-export default function Page1Address ({address}: {address: AddressTypes}) {
+export default function Page1Address ({address, handleAddressChange}: {address: AddressTypes, handleAddressChange: any}) {
   return (
     <form>
       <label>Flat Number / Building Name:</label>
@@ -9,7 +9,7 @@ export default function Page1Address ({address}: {address: AddressTypes}) {
         type="text"
         name="buildingName"
         value={address.buildingName}
-        // onChange={props.handleChange}
+        onChange={handleAddressChange}
       />
 
       <label>Street Number:</label>
@@ -18,7 +18,7 @@ export default function Page1Address ({address}: {address: AddressTypes}) {
         type="text"
         name="streetNumber"
         value={address.streetNumber}
-        // onChange={props.handleChange}
+        onChange={handleAddressChange}
       />
 
       <label>Street Name:</label>
@@ -27,7 +27,7 @@ export default function Page1Address ({address}: {address: AddressTypes}) {
         type="text"
         name="streetAddress"
         value={address.streetAddress}
-        // onChange={props.handleChange}
+        onChange={handleAddressChange}
       />
 
       <label>City:</label>
@@ -36,7 +36,7 @@ export default function Page1Address ({address}: {address: AddressTypes}) {
         type="text"
         name="city"
         value={address.city}
-        // onChange={props.handleChange}
+        onChange={handleAddressChange}
       />
 
       <label>Postal Code:</label>
@@ -45,7 +45,7 @@ export default function Page1Address ({address}: {address: AddressTypes}) {
         type="text"
         name="postalCode"
         value={address.postalCode}
-        // onChange={props.handleChange}
+        onChange={handleAddressChange}
       />
     </form>
   );
