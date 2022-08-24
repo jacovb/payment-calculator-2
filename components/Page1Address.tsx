@@ -1,6 +1,12 @@
+import { ChangeEvent } from "react";
 import { AddressTypes } from "./model";
 
-export default function Page1Address ({address, handleAddressChange}: {address: AddressTypes, handleAddressChange: any}) {
+type AddressProps = {
+  address: AddressTypes,
+  handleAddressChange: (event: ChangeEvent<HTMLInputElement>) => void,
+}
+
+export default function Page1Address ({address, handleAddressChange}: AddressProps) {
   return (
     <form>
       <label>Flat Number / Building Name:</label>
