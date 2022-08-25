@@ -27,10 +27,9 @@ const PaymentCalculator:React.FC = () => {
   }
 
   return (
-    <main>
-      <h1>Enter Address</h1>
+    <main className="container min-h-screen flex flex-col justify-center items-center mx-auto px-8 md:px-16 lg:px-24 w-[30rem] md:w-[40rem] lg:w-[50rem]">
       <Page1Address address={address} handleAddressChange={handleAddressChange}/>
-      <button>Skip</button>
+      <button className="px-4 py-2 my-4 bg-gray-300 rounded border border-black hover:bg-coral-red hover:text-white hover:shadow-button-strong transition ease-in-out">Skip</button>
     </main>
   )
 }

@@ -5,7 +5,16 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "main-blue": "#005472",
+        "light-blue": "#00a3dd",
+        "coral-red": "#fe8a71",
+      },
+      boxShadow: {
+        "button-strong": "2px 2px 3px 0px black",
+      },
+    },
   },
   plugins: [],
 };
