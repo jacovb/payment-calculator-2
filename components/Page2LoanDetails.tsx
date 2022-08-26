@@ -6,10 +6,10 @@ type AddressProps = {
   handleAddressChange: (event: ChangeEvent<HTMLInputElement>) => void,
 }
 
-export default function Page1Address ({address, handleAddressChange}: AddressProps) {
+export default function Page2LoanDetails ({address, handleAddressChange}: AddressProps) {
   return (
     <div>
-      <h1 className="font-bold text-xl text-white my-4">Enter Address</h1>
+      <h1 className="font-bold text-xl text-white my-4">Enter Loan Details</h1>
       <form className="text-white grid grid-cols-2 gap-x-4 gap-y-2">
         <label className="flex items-center">Flat Number / Building Name:</label>
         <input

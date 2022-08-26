@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react"
-import { AddressTypes } from "./model"
+import { AddressTypes, LoanDataTypes, PageTypes } from "./model"
 import Page1Address from "./Page1Address"
 
 const addressData = {
@@ -10,17 +10,32 @@ const addressData = {
   postalCode: ""
 }
 
-const PaymentCalculator:React.FC = () => {
+const loanData = {
+  price: 100000,
+  deposit: 10000,
+  rate: 3.6,
+  fixedRate: 2,
+  isFixedRate: false,
+  periodInYears: 25,
+  fixedPeriod: 2,
+  totalAnnualPayments: null,
+  paymentSchedule: [],
+};
 
-  const [isPage1Visible, setIsPage1Visible] = useState<boolean>(true)
-  const [isPage2Visible, setIsPage2Visible] = useState<boolean>(false)
-  const [isPage3Visible, setIsPage3Visible] = useState<boolean>(false)
+const pageData = {
+  isPage1Visible: true,
+  isPage2Visible: false,
+  isPage3Visible: false,
+}
+
+const PaymentCalculator:React.FC = () => {
+  const [page, setPage] = useState<PageTypes>(pageData)
   const [address, setAddress] = useState<AddressTypes>(addressData)
+  const [loanInfo, setLoanInfo] = useState<LoanDataTypes>(loanData)
   
-  console.log("Page 1 :", isPage1Visible)
-  console.log("Page 2 :", isPage2Visible)
-  console.log("Page 3 :", isPage3Visible)
+  console.log(page)
   console.log(address)
+  console.log(loanInfo)
 
   function handleAddressChange (e: ChangeEvent<HTMLInputElement>) {
     setAddress({ ...address, [e.target.name]: e.target.value })
