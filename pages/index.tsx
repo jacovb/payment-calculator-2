@@ -18,9 +18,6 @@ const Home: NextPage = () => {
 
       <main >
         {(!start) ? <Hero start={start} setStart={setStart} /> : <PaymentCalculator />}
-        {/*<Navigation /> Buttons on top of Page
-        <LoanInformation />
-        <PaymentSchedule /> */}
       </main>
 
       
