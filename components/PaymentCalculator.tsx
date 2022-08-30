@@ -43,6 +43,15 @@ const PaymentCalculator:React.FC = () => {
     setAddress({ ...address, [e.target.name]: e.target.value })
   }
 
+  function handleLoanChange (e: ChangeEvent<HTMLInputElement>) {
+    setLoanInfo({ ...loanInfo, [e.target.name]: e.target.value })
+  }
+
+  function handleRadio (e: ChangeEvent<HTMLInputElement>) {
+    const isFixed = e.currentTarget.value === "true" ? true : false;
+    setLoanInfo({ ...loanInfo, isFixedRate: isFixed })
+  }
+
   function loadPage1 () {
     setPage({ 
       isPage1Visible: true,
@@ -70,7 +79,7 @@ const PaymentCalculator:React.FC = () => {
   return (
     <main className="container min-h-screen flex flex-col justify-center items-center mx-auto px-8 md:px-16 lg:px-24 w-[30rem] md:w-[40rem] lg:w-[50rem]">
       {page.isPage1Visible && <Page1Address address={address} handleAddressChange={handleAddressChange} loadPage2={loadPage2} />}
-      {page.isPage2Visible && <Page2LoanDetails loadPage1={loadPage1} loadPage3={loadPage3} />}
+      {page.isPage2Visible && <Page2LoanDetails loanInfo={loanInfo} handleLoanChange={handleLoanChange} handleRadio={handleRadio} loadPage1={loadPage1} loadPage3={loadPage3} />}
       {page.isPage3Visible && <Page3Schedule loadPage2={loadPage2} />}
     </main>
   )

@@ -1,40 +1,70 @@
 import { ChangeEvent, MouseEvent } from "react";
-import { AddressTypes } from "./model";
+import { LoanDataTypes } from "./model";
 
-// type AddressProps = {
-//   address: AddressTypes,
-//   handleAddressChange: (event: ChangeEvent<HTMLInputElement>) => void,
-// }
-
-type LoanProps = {
+type LoanDataProps = {
+  loanInfo: LoanDataTypes,
+  handleLoanChange: (event: ChangeEvent<HTMLInputElement>) => void,
+  handleRadio: (event: ChangeEvent<HTMLInputElement>) => void,
   loadPage1: (event: MouseEvent<HTMLButtonElement>) => void,
   loadPage3: (event: MouseEvent<HTMLButtonElement>) => void,
 }
 
-export default function Page2LoanDetails ({loadPage1, loadPage3} : LoanProps) {
+
+
+export default function Page2LoanDetails ({loanInfo, handleLoanChange, handleRadio, loadPage1, loadPage3} : LoanDataProps) {
+  console.log(loanInfo)
   return (
     <div>
       <h1 className="font-bold text-xl text-white my-4">Enter Loan Details</h1>
-      {/* <form className="text-white grid grid-cols-2 gap-x-4 gap-y-2">
-        <label className="flex items-center">Flat Number / Building Name:</label>
+      <form className="text-white grid grid-cols-2 gap-x-4 gap-y-2">
+        <div className="col-span-2 flex justify-between">
+          <div>
+            <input
+              type="radio"
+              id="radioStandard"
+              value="false"
+              name="isFixedRate"
+              checked={loanInfo.isFixedRate === false}
+              onChange={handleRadio}
+              />
+            <label htmlFor="radioStandard" className="ml-3">
+              Standard Variable Rate
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="radioFixed"
+              value="true"
+              name="isFixedRate"
+              checked={loanInfo.isFixedRate === true}
+              onChange={handleRadio}
+              />
+            <label htmlFor="radioFixed" className="ml-3">
+              Initial Fixed Rate
+            </label>
+          </div>
+        </div>
+        
+        <label className="flex items-center">Property Price:</label>
         <input
           className="w-full px-3 py-2 border-2 border-light-blue rounded text-black focus:outline-none focus:border-coral-red focus:bg-gray-100"
-          type="text"
-          name="buildingName"
-          value={address.buildingName}
-          onChange={handleAddressChange}
+          type="number"
+          name="price"
+          value={loanInfo.price}
+          onChange={handleLoanChange}
         />
 
         <label className="flex items-center">Street Number:</label>
         <input
           className="w-full px-3 py-2 border-2 border-light-blue rounded text-black focus:outline-none focus:border-coral-red focus:bg-gray-100"
-          type="text"
-          name="streetNumber"
-          value={address.streetNumber}
-          onChange={handleAddressChange}
+          type="number"
+          name="deposit"
+          value={loanInfo.deposit}
+          onChange={handleLoanChange}
         />
 
-        <label className="flex items-center">Street Name:</label>
+        {/* <label className="flex items-center">Street Name:</label>
         <input
           className="w-full px-3 py-2 border-2 border-light-blue rounded text-black focus:outline-none focus:border-coral-red focus:bg-gray-100"
           type="text"
@@ -59,8 +89,8 @@ export default function Page2LoanDetails ({loadPage1, loadPage3} : LoanProps) {
           name="postalCode"
           value={address.postalCode}
           onChange={handleAddressChange}
-        />
-      </form> */}
+        /> */}
+      </form>
       <div className="flex">
         <button 
           onClick={loadPage1}
