@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent } from "react";
 import { LoanDataTypes } from "./model";
+import { calculateMonthlyPayment } from "./utils/formula"
 
 type LoanDataProps = {
   loanInfo: LoanDataTypes,
@@ -45,6 +46,8 @@ export default function Page2LoanDetails ({loanInfo, handleLoanChange, handleRad
             </label>
           </div>
         </div>
+
+        <div className="col-span-2 h-px border-b-[5px] border-mustard my-3"></div>
         
         <label className="flex items-center">Property Price:</label>
         <input
@@ -113,17 +116,29 @@ export default function Page2LoanDetails ({loanInfo, handleLoanChange, handleRad
           <p className="px-3 py-2 bg-white">Years</p>
         </div>
 
+        <div className="col-span-2 h-px border-b-[5px] border-mustard my-3"></div>
+
+        <label className="font-bold">Monthly Amount Paid:</label>
+        <div className="font-bold flex justify-end">
+          £{" "}
+          {calculateMonthlyPayment(
+            loanInfo.price - loanInfo.deposit,
+            loanInfo.isFixedRate ? loanInfo.fixedRate : loanInfo.rate, //rate depends of whether fixed rate is chose or not
+            loanInfo.periodInYears
+          )}
+        </div>
+
       </form>
       <div className="flex">
         <button 
           onClick={loadPage1}
-          className="px-4 py-2 my-4 bg-gray-300 rounded border border-black hover:bg-coral-red hover:text-white hover:shadow-button-strong transition ease-in-out">
+          className="mx-1 px-4 py-2 my-4 bg-gray-300 rounded border border-black hover:bg-coral-red hover:text-white hover:shadow-button-strong transition ease-in-out">
             Back
         </button>
         <button 
           onClick={loadPage3}
-          className="px-4 py-2 my-4 bg-gray-300 rounded border border-black hover:bg-coral-red hover:text-white hover:shadow-button-strong transition ease-in-out">
-            Next
+          className="mx-1 px-4 py-2 my-4 bg-gray-300 rounded border border-black hover:bg-coral-red hover:text-white hover:shadow-button-strong transition ease-in-out">
+            Payment Schedule
         </button>
       </div>
     </div>
